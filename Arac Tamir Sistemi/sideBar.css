@@ -1,0 +1,81 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+#sidebar {
+    width: 235px;
+    height: 100vh;
+    background-color: rgb(91, 6, 6);
+    /* background-image: url(media/logo.png); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+#sidebar ul {
+    list-style-type: none;
+}
+
+#sidebar ul li {
+    margin: 10px;
+    padding: 10px;
+    background-color: #add711;
+    box-shadow: 5px 5px 10px rgba(85, 14, 14, 0.7);
+}
+
+#sidebar ul li a {
+    text-decoration: solid;
+    color: #6d1cc3;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+#sidebar ul li a i {
+    margin-right: 8px;
+}
+
+#sidebar ul li:hover {
+    margin-left: 15px;
+}
+
+#body {
+    margin-left: 210px;
+
+}
+
+body {
+    background-image: url('media/arkaplan.png');
+}
+
+.altAlan {
+    margin-left: 30px;
+}
+#baslik {
+    text-align: center;
+    margin-top: 5%;
+    font-family: "Sofia", sans-serif;
+    color: chartreuse;
+    font-size: 45px;
+    background-color: rgba(19, 21, 150, 0.8);
+    /* width: 250px; */
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 50px;
+
+}
+#logo {
+    width: 220px;
+    margin-left: 55px;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 15px;
+}
+#kaydet:hover{
+    background-color: rgb(22, 21, 21);
+}
+button{
+    cursor: pointer;
+}

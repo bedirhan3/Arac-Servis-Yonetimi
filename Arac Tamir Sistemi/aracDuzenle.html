@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Araç İşlemleri</title>
+    <link rel="stylesheet" href="sideBar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="media/logo.png">
+    <style>
+        #aracListele {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        #overflow {
+            max-height: 600px;
+            overflow-y: auto;
+            margin-top: 40px;
+        }
+
+        #aracListele table {
+            border-collapse: collapse;
+
+
+
+        }
+
+        #aracListele td {
+            padding-left: 50px;
+            padding-right: 50px;
+            font-size: 20px;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        #aracListele th {
+            padding-left: 50px;
+            padding-right: 50px;
+
+            font-size: 25px;
+            color: chartreuse;
+
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(3, 4, 66, 0.8);
+            color: #fefdfd;
+        }
+
+        tr:nth-child(odd) {
+            background-color: rgba(13, 16, 198, 0.8);
+            color: #fefdfd;
+        }
+
+        tr:hover {
+            background-color: rgba(96, 167, 25, 0.8);
+        }
+
+        #aracListele table tr:last-child td {
+            padding-bottom: 20px;
+        }
+
+        #search {
+            text-align: center;
+            margin: 10px;
+            font-size: 19px;
+            border-radius: 100px;
+            background-color: rgba(3, 4, 66, 0.1);
+            color: aliceblue;
+            border: 2px solid rgb(0, 255, 55);
+        }
+
+        #pop-up {
+            position: fixed;
+            background-color: rgba(7, 9, 103, 0.92);
+            margin-top: 100px;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        #pop-up input {
+            margin-top: 5px;
+            font-size: 25px;
+            text-align: center;
+            width: 140px;
+
+        }
+
+        .aracBilgileri p {
+            background-color: rgba(127, 255, 0, 0.8);
+
+            width: auto;
+            display: inline-block;
+            font-size: 20px;
+            padding: 15px 45px;
+            margin-top: 20px;
+            border-radius: 30px;
+            font-size: 28px;
+            color: chocolate;
+        }
+
+        #degisikleriKaydet {
+            background-color: rgb(16, 227, 195, 0.8);
+            color: rgb(33, 7, 71);
+            font-size: 23px;
+            padding: 5px 15px;
+            border-radius: 8px;
+            margin-top: 35px;
+            margin-left: 80px
+        }
+
+        #degisikleriKaydet:hover {
+            background-color: rgba(24, 174, 152, 0.8);
+        }
+
+        .aracBilgileri .fa-solid {
+            background-color: rgba(248, 206, 188, 0.8);
+            border-radius: 5px;
+            color: red;
+            padding: 5px;
+            font-size: 30px;
+            margin-left: 5px;
+        }
+
+        .aracBilgileri .fa-solid:hover {
+            background-color: rgba(252, 242, 239, 0.8);
+
+        }
+
+        .aracBilgileri .fa-regular {
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            right: 0;
+            font-size: 20px;
+            color: white;
+        }
+
+        .aracBilgileri .fa-regular:hover {
+            color: red;
+        }
+
+        .aracBilgileri input {
+            background-color: rgba(127, 255, 0, 0.8);
+            font-size: 20px;
+            padding: 15px 45px;
+            border-radius: 30px;
+            font-size: 28px;
+            color: chocolate;
+            border: 0;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+
+            <li><a href="#"><i class="fa-solid fa-house-user"></i>Anasayfa</a></li>
+
+            <li onclick="altAlann(0)"><a href="javascript:void(0);"><i class="fa-solid fa-briefcase"></i>İş
+                    Emirleri</a><i class="arrow fa-solid fa-chevron-down" style="margin-left: 68px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="isEmriOlustur.html" style="font-size: 14px;">• İş Emri Oluştur</a>
+                </li>
+                <li style="height: 15px;"><a href="isEmriGor.html" style="font-size: 14px;">• İş Emirlerini Gör</a></li>
+
+            </div>
+            <li onclick="altAlann(1)"><a href="javascript:void(0);"><i class="fa-solid fa-car"></i>Araç İşlemleri</a><i
+                    class="arrow fa-solid fa-chevron-down" style="margin-left: 38px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="aracListesi.html" style="font-size: 14px;">• Araç Listesi</a></li>
+                <li style="height: 15px;"><a href="aracEkle.html" style="font-size: 14px;">• Araç Ekle</a></li>
+                <li style="height: 15px;"><a href="aracDuzenle.html" style="font-size: 14px;">• Araç Düzenle</a></li>
+
+            </div>
+
+            <li onclick="altAlann(2)"><a href="javascript:void(0);"><i class="fa-solid fa-user"></i>Müşteri
+                    İşlemleri</a><i class="arrow fa-solid fa-chevron-down" style="margin-left: 19px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="musteriListesi.html" style="font-size: 14px;">• Müşteri Listesi</a>
+                </li>
+                <li style="height: 15px;"><a href="musteriEkle.html" style="font-size: 14px;">• Müşteri Ekle</a></li>
+                <li style="height: 15px;"><a href="musteriDuzenle.html" style="font-size: 14px;">• Müşteri Düzenle</a>
+                </li>
+
+            </div>
+            <li onclick="altAlann(3)"><a href="javascript:void(0);"><i class="fa-solid fa-warehouse"></i>Stok
+                    Yönetimi</a><i class="arrow fa-solid fa-chevron-down" style="margin-left: 32px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="stokListesi.html" style="font-size: 14px;">• Stok Listesi</a></li>
+                <li style="height: 15px;"><a href="stokDuzenle.html" style="font-size: 14px;">• Düzenle</a></li>
+                <li style="height: 15px;"><a href="stokEkle.html" style="font-size: 14px;">• Malzeme Ekle</a></li>
+
+            </div>
+            <li onclick="altAlann(4)"><a href="javascript:void(0);"><i class="fa-solid fa-money-bill"></i>Raporlar</a><i
+                    class="arrow fa-solid fa-chevron-down" style="margin-left: 76px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="gunlukRapor.html" style="font-size: 14px;">• Günlük Rapor</a></li>
+                <li style="height: 15px;"><a href="genelRapor.html" style="font-size: 14px;">• Genel Rapor</a></li>
+                <li style="height: 15px;"><a href="#" style="font-size: 14px;">• Şirket Giderleri</a></li>
+
+            </div>
+        </ul>
+    </div>
+    <div id="body">
+        <h1 id="baslik"> Araç Düzenle</h1>
+        <div id="aracListele">
+
+            <div id="overflow">
+                <table id="table">
+                    <tr style="background-color: rgba(13, 16, 198, 0.8);">
+                        <td colspan="5"> <input type="text" id="search" placeholder="search..." style="margin: 20px;">
+                        </td>
+                    </tr>
+                    <tr style="            background-color: rgba(13, 16, 198, 0.8);
+                    ">
+                        <th>Plaka</th>
+                        <th>Marka Model</th>
+                        <th>Şase Numarası</th>
+                        <th>Geliş KM</th>
+                        <th>Araç Sahibi</th>
+                    </tr>
+
+
+
+
+                </table>
+            </div>
+            <div id="pop-up">
+                <h1 style="color:chartreuse; 
+                background-color:rgba(210, 105, 30, 0.8);
+                padding: 5px 45px;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                text-align: center;
+                
+                ">Araç Düzenle</h1>
+                <div class="aracBilgileri">
+                    <i onclick="carpi()" class="fa-regular fa-circle-xmark"></i>
+
+                    <p class="bilgiler">ahmet</p>
+                    <input type="text" maxlength="25" class="input" style="margin-top: 20px;">
+                    <i onclick="duzenle(0)" class="fa-solid fa-pen-to-square"></i><br>
+
+                    <p class="bilgiler">ahmet</p>
+                    <input type="text" maxlength="25" class="input" style="margin-top: 20px;">
+                    <i onclick="duzenle(1)" class="fa-solid fa-pen-to-square"></i><br>
+
+                    <p class="bilgiler">ahmet</p>
+                    <input type="text" maxlength="12" class="input" style="margin-top: 20px;">
+                    <i onclick="duzenle(2)" class="fa-solid fa-pen-to-square"></i><br>
+
+                    <p class="bilgiler">ahmet</p>
+                    <input type="text" maxlength="12" class="input" style="margin-top: 20px;">
+                    <i onclick="duzenle(3)" class="fa-solid fa-pen-to-square"></i>
+
+                </div>
+                <button id="degisikleriKaydet">Değişiklikleri Kaydet</button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="sideBar.js"></script>
+    <script src="aracDuzenle.js"></script>
+</body>
+
+</html>

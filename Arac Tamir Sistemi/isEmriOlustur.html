@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Emirleri</title>
+    <link rel="stylesheet" href="sideBar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="media/logo.png">
+
+    <style>
+        #aracEkleme {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #aracEkleme table {
+            background-color: rgba(19, 21, 150, 0.8);
+            padding: 25px;
+            border-radius: 50px;
+            padding-bottom: 25px;
+
+
+        }
+
+        #aracEkleme table tr td:nth-child(odd) {
+            padding-left: 20px;
+            padding-top: 20px;
+            font-size: 50px;
+            color: chartreuse;
+        }
+
+        #aracEkleme table tr td input {
+            font-size: 30px;
+            border: 0;
+            margin-left: 90px;
+            margin-top: 31px;
+        }
+
+        #aracEkleme table tr td select {
+            font-size: 30px;
+            border: 0;
+            margin-left: 90px;
+            margin-top: 27px;
+            width: 368px;
+        }
+
+        #aracEkleme table tr td option {
+            font-size: 20px;
+            border: 0;
+            margin-left: 90px;
+            margin-top: 27px;
+            width: 368px;
+        }
+
+        #aracEkleme table button {
+            background-color: black;
+            color: chartreuse;
+            font-size: 35px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-left: 230px;
+        }
+
+        .urunListele {
+            color: rgb(235, 228, 228);
+            font-size: 15px;
+            background-color: rgba(10, 1, 36, 0.8);
+            padding: 7px 15px;
+            border-radius: 5px;
+            width: 50px;
+            margin-left: 2px;
+            margin-bottom: 2.5px;
+            display: inline-block;
+            width: auto;
+
+        }
+
+        .urunListele:hover {
+            background-color: rgba(76, 28, 219, 0.8);
+
+        }
+
+        .mouseOver {
+            background-color: rgba(10, 1, 36, 0.9);
+            position: absolute;
+            margin-top: 440px;
+            margin-left: 450px;
+            padding: 15px;
+            border-radius: 25px;
+            z-index: 1;
+
+        }
+
+        .adetSayisi {
+            background-color: rgba(250, 235, 215, 0);
+            border: 0;
+            color: goldenrod;
+            font-size: 35px;
+            width: 60px;
+            text-align: center;
+        }
+
+        .fa-circle-up {
+            color: greenyellow;
+            font-size: 50px;
+
+        }
+
+        .fa-circle-down {
+            font-size: 50px;
+            color: red;
+        }
+
+        .fa-circle-up:hover {
+            color: rgb(133, 199, 35);
+            font-size: 50px;
+
+        }
+
+        .fa-circle-down:hover {
+            font-size: 50px;
+            color: rgb(203, 6, 6);
+        }
+
+        /* .fa-solid.fa-message{
+            position: absolute;
+            font-size: 100px;
+            margin-top: 450px;
+            margin-left: 140px;
+            z-index: 2;
+            color: rgb(24, 134, 98);
+            
+
+        } */
+        .message {
+            position: absolute;
+            margin-top: 440.7px;
+            margin-left: 750px;
+            z-index: 0;
+            color: aliceblue;
+            background-color: rgb(179, 105, 9);
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+
+            <li><a href="#"><i class="fa-solid fa-house-user"></i>Anasayfa</a></li>
+
+            <li onclick="altAlann(0)"><a href="javascript:void(0);"><i class="fa-solid fa-briefcase"></i>İş
+                    Emirleri</a><i class="arrow fa-solid fa-chevron-down" style="margin-left: 68px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="isEmriOlustur.html" style="font-size: 14px;">• İş Emri Oluştur</a>
+                </li>
+                <li style="height: 15px;"><a href="isEmriGor.html" style="font-size: 14px;">• İş Emirlerini Gör</a></li>
+
+            </div>
+            <li onclick="altAlann(1)"><a href="javascript:void(0);"><i class="fa-solid fa-car"></i>Araç İşlemleri</a><i
+                    class="arrow fa-solid fa-chevron-down" style="margin-left: 38px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="aracListesi.html" style="font-size: 14px;">• Araç Listesi</a></li>
+                <li style="height: 15px;"><a href="aracEkle.html" style="font-size: 14px;">• Araç Ekle</a></li>
+                <li style="height: 15px;"><a href="aracDuzenle.html" style="font-size: 14px;">• Araç Düzenle</a></li>
+
+            </div>
+
+            <li onclick="altAlann(2)"><a href="javascript:void(0);"><i class="fa-solid fa-user"></i>Müşteri
+                    İşlemleri</a><i class="arrow fa-solid fa-chevron-down" style="margin-left: 19px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="musteriListesi.html" style="font-size: 14px;">• Müşteri Listesi</a>
+                </li>
+                <li style="height: 15px;"><a href="musteriEkle.html" style="font-size: 14px;">• Müşteri Ekle</a></li>
+                <li style="height: 15px;"><a href="musteriDuzenle.html" style="font-size: 14px;">• Müşteri Düzenle</a>
+                </li>
+
+            </div>
+            <li onclick="altAlann(3)"><a href="javascript:void(0);"><i class="fa-solid fa-warehouse"></i>Stok
+                    Yönetimi</a><i class="arrow fa-solid fa-chevron-down" style="margin-left: 32px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="stokListesi.html" style="font-size: 14px;">• Stok Listesi</a></li>
+                <li style="height: 15px;"><a href="stokDuzenle.html" style="font-size: 14px;">• Düzenle</a></li>
+                <li style="height: 15px;"><a href="stokEkle.html" style="font-size: 14px;">• Malzeme Ekle</a></li>
+
+            </div>
+            <li onclick="altAlann(4)"><a href="javascript:void(0);"><i class="fa-solid fa-money-bill"></i>Raporlar</a><i
+                    class="arrow fa-solid fa-chevron-down" style="margin-left: 76px;"></i>
+            </li>
+            <div class="altAlan">
+                <li style="height: 15px;"><a href="gunlukRapor.html" style="font-size: 14px;">• Günlük Rapor</a></li>
+                <li style="height: 15px;"><a href="genelRapor.html" style="font-size: 14px;">• Genel Rapor</a></li>
+                <li style="height: 15px;"><a href="#" style="font-size: 14px;">• Şirket Giderleri</a></li>
+
+            </div>
+        </ul>
+    </div>
+    <div id="body">
+
+        <h1 id="baslik">İş Emri Oluştur</h1>
+        <div id="aracEkleme">
+            <table>
+                <tr>
+                    <td>Araç</td>
+                    <td><select name="secenek" id="secenek" oninput="secenekDegisti()">
+                            <option value="sec" disabled selected>Araç seçin</option>
+                            <option value="yeniAracEkle">Yeni araç ekle +++</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hataMesaji" colspan="2" align="right" style="padding: 0px; margin: 0px; font-size: 0px;">
+                        <span style="color: rgb(235, 228, 228);
+                    font-size: 15px;
+                    background-color: rgba(237, 13, 13, 0.8);
+                    padding: 7px 15px;
+                    border-radius: 5px;
+                    width: 50px;">Araç seçin</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>İş Tanımı</td>
+                    <td><input id="plaka" type="" placeholder="Akü Kontrolü" maxlength="910"></td>
+                </tr>
+                <tr>
+                    <td class="hataMesaji" colspan="2" align="right"
+                        style="padding: 0px; margin: 0px; font-size: 0px; display: none;">
+                        <span style="color: rgb(235, 228, 228);
+                    font-size: 15px;
+                    background-color: rgba(237, 13, 13, 0.8);
+                    padding: 7px 15px;
+                    border-radius: 5px;
+                    width: 50px;">Plaka en az 5 harften oluşmalıdır</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Şikayet</td>
+                    <td><input id="markaModel" type="text" placeholder="Araç bazen çalışmıyor" maxlength="300"></td>
+                </tr>
+                <tr>
+                    <td class="hataMesaji" colspan="2" align="right" style="padding: 0px; margin: 0px; font-size: 0px;">
+                        <span style="color: rgb(235, 228, 228);
+                        font-size: 15px;
+                        background-color: rgba(237, 13, 13, 0.8);
+                        padding: 7px 15px;
+                        border-radius: 5px;
+                        width: 50px;">"Şikayet" alanı boş geçilemez</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>İşçilik</td>
+                    <td><input id="tutar" type="text" placeholder="8000" maxlength="9"></td>
+                </tr>
+                <tr>
+                    <td class="hataMesaji" colspan="2" align="right" style="padding: 0px; margin: 0px; font-size: 0px;">
+                        <span style="color: rgb(235, 228, 228);
+                        font-size: 15px;
+                        background-color: rgba(237, 13, 13, 0.8);
+                        padding: 7px 15px;
+                        border-radius: 5px;
+                        width: 50px;">"Tutar" alanı boş geçilemez</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Geliş KM</td>
+                    <td><input id="gelisKm" type="text" placeholder="30500" maxlength="8"></td>
+                </tr>
+                <tr>
+                    <td class="hataMesaji" colspan="2" align="right" style="padding: 0px; margin: 0px; font-size: 0px;">
+                        <span style="color: rgb(235, 228, 228);
+                    font-size: 15px;
+                    background-color: rgba(237, 13, 13, 0.8);
+                    padding: 7px 15px;
+                    border-radius: 5px;
+                    width: 50px;">"Geliş KM" alanı boş geçilemez</span>
+                    </td>
+                </tr>
+                <tr style="position: relative;">
+                    <div class="mouseOver">
+                        <i onclick="cik(1)"
+                            style="color: red; top:0; right: 0; position: absolute; width: 15px; height: 200px;"
+                            class="fa-solid fa-circle-xmark"></i>
+                        <i onclick="atama(1)" class="fa-solid fa-circle-up"></i>
+                        <input class="adetSayisi" type="text" value="1" maxlength="5">
+                        <i onclick="atama(0)" class="fa-solid fa-circle-down"></i>
+                    </div>
+
+
+
+                    <div class="mouseOver" style="margin-left: 690px;">
+                        <i onclick="cik(2)"
+                            style="color: red; top:0; right: 0; position: absolute; width: 15px; height: 200px;"
+                            class="fa-solid fa-circle-xmark"></i>
+                        <i onclick="atama(3)" class="fa-solid fa-circle-up"></i>
+                        <input class="adetSayisi" type="text" value="1" maxlength="7">
+                        <i onclick="atama(4)" class="fa-solid fa-circle-down"></i>
+
+                    </div>
+
+                    <!-- <i class="fa-solid fa-message"></i> -->
+                    <div class="message">
+                        <p>Toplam: <span id="tumUrunlerinMaliyeti">0</span><i style="width: 9px; margin-left: 3px;"
+                                class="fa-solid fa-turkish-lira-sign"></i></p>
+                    </div>
+
+                    <td>Kullanılacak Ürün</td>
+                    <td><select name="secenek" id="secenek2" oninput="urunEkle()">
+                            <option value="sec2" disabled selected>Ürün seçin</option>
+                            <option class="urunler" value="yeniUrunEkle">Yeni Ürün Ekle +++</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="hataMesaji" colspan="2" align="right" style="padding: 0px; margin: 0px; font-size: 0px;">
+                        <!-- <span class="urunListele isim"> Far Lambası </span>
+                        <span class="urunListele adet"  onclick="adetSayisiAyarla(0)"  > Adet Sayısı: 1 </span>
+                        <span class="urunListele maliyet"onclick="maliyetAyarla(0)" > Maliyet: 370<i style="width: 9px; margin-left: 3px;" class="fa-solid fa-turkish-lira-sign"></i></span><br> -->
+
+                        <!--2 adetr eklendikten sonra her yenisi eklendiğinde margin bottom 34.1 artıcak -->
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2">
+                        <button id="kaydet" onclick="kaydet()">Kaydet</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+    </div>
+    <script src="isEmriOlustur.js"></script>
+    <script src="sideBar.js"></script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>
